@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
+using Newtonsoft.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -14,6 +15,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using RocketElevator_Customer.Areas.Identity.Data;
+using System.Net.Http;
 
 namespace RocketElevator_Customer.Areas.Identity.Pages.Account
 {
@@ -74,7 +76,9 @@ namespace RocketElevator_Customer.Areas.Identity.Pages.Account
         {
             returnUrl = returnUrl ?? Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-            if (ModelState.IsValid)
+            var httpClient = new HttpClient();
+            var response = await httpClient.GetAsync($"https://felixrestapicode.azurewebsites.net/api/Customers/email/{Input.Email}");
+            if (ModelState.IsValid && response.StatusCode==System.Net.HttpStatusCode.OK)
             {
                 var user = new CustomerUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
