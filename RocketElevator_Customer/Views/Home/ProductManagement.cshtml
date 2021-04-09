@@ -1,0 +1,149 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ ViewData["Title"] = "ProductManagement";
+    var building = ViewBag.building;
+    var battery = ViewBag.battery;
+    var column = ViewBag.column;
+    var elevator = ViewBag.elevator;
+}
+
+<div class="text-center">
+    <h4>Building</h4>
+</div>
+
+<div>
+    <table class="table table-striped table-bordered col-md-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>building_address</th>
+                <th>building_admin_full_name</th>
+                <th>building_admin_email</th>
+                <th>building_admin_phone</th>
+                <th>building_technical_full_name</th>
+                <th>building_technical_email</th>
+                <th>building_technical_phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var build in building)
+            {
+                <tr>
+                    <td>@build.id</td>
+                    <td>@build.building_address</td>
+                    <td>@build.building_admin_full_name</td>
+                    <td>@build.building_admin_email</td>
+                    <td>@build.building_admin_phone</td>
+                    <td>@build.building_technical_full_name</td>
+                    <td>@build.building_technical_email</td>
+                    <td>@build.building_technical_phone</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="text-center">
+    <h4>Battery</h4>
+</div>
+
+<div>
+    <table class="table table-striped table-bordered col-md-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>status</th>
+                <th>building_id</th>
+                <th>building_type</th>
+                <th>employee_id</th>
+                <th>date_of_commissioning</th>
+                <th>date_of_last_inspection</th>
+                <th>certificate_of_operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bat in battery)
+            {
+                <tr>
+                    <td>@bat.id</td>
+                    <td>@bat.status</td>
+                    <td>@bat.building_id</td>
+                    <td>@bat.building_type</td>
+                    <td>@bat.employee_id</td>
+                    <td>@bat.date_of_commissioning</td>
+                    <td>@bat.date_of_last_inspection</td>
+                    <td>@bat.certificate_of_operations</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<div class="text-center">
+    <h4>Column</h4>
+</div>
+
+<div>
+    <table class="table table-striped table-bordered col-md-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>status</th>
+                <th>battery_id</th>
+                <th>building_type</th>
+                <th>number_of_floors_served</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var col in column)
+            {
+                <tr>
+                    <td>@col.id</td>
+                    <td>@col.status</td>
+                    <td>@col.battery_id</td>
+                    <td>@col.building_type</td>
+                    <td>@col.number_of_floors_served</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<div class="text-center">
+    <h4>Elevator</h4>
+</div>
+
+<div>
+    <table class="table table-striped table-bordered col-md-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>serial_number</th>
+                <th>model_type</th>
+                <th>building_type</th>
+                <th>status</th>
+                <th>date_of_commissioning</th>
+                <th>certificate_of_operations</th>
+                <th>column_id</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ele in elevator)
+            {
+                <tr>
+                    <td>@ele.id</td>
+                    <td>@ele.serial_number</td>
+                    <td>@ele.model_type</td>
+                    <td>@ele.building_type</td>
+                    <td>@ele.status</td>
+                    <td>@ele.date_of_commissioning</td>
+                    <td>@ele.date_of_last_inspection</td>
+                    <td>@ele.column_id</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

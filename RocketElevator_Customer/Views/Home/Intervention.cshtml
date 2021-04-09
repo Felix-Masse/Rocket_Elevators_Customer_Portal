@@ -1,0 +1,87 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Intervention";
+    var building = ViewBag.building;
+    var battery = ViewBag.battery;
+    var column = ViewBag.column;
+    var elevator = ViewBag.elevator;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Intervention Form</h1>
+</div>
+
+<form action="Intervention" method="post">
+
+    <div class="row text-center">
+        <div class="col-md-4 text-center mx-auto building">
+            <label for="building_select">Building</label>
+            <select id="building_select" class="form-control pointer" name="building" required >
+                <option disabled selected>--Required--</option>
+                @foreach (var b in building)
+                {
+                    <option>@b.id</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4 text-center mx-auto selbatt battery">
+            <br>
+            <label for="battery_select">Battery</label>
+            <select id="battery_select" class="form-control pointer" name="battery" required >
+                @*<option disabled selected>--Required--</option>*@
+                @foreach (var y in battery)
+                {
+                    <option>@y.id</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4 text-center mx-auto selcol column">
+            <br \>
+            <label for="column_select">Column</label>
+            <select id="column_select" class="form-control pointer" name="column" >
+                <option value="0">None</option>
+                @foreach (var c in column)
+                {
+                    <option>@c.id</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4 text-center mx-auto selelev elevator">
+            <br \>
+            <label for="elevator_select">Elevator</label>
+            <select id="elevator_select" class="form-control pointer" name="elevator" >
+                @*<option value="0">None</option>*@
+                @foreach (var e in elevator)
+                {
+                    <option>@e.id</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4 text-center mx-auto seldesc">
+            <br \>
+            <label for="selectdescription">Description</label>
+            <br \>
+            <textarea type="text" rows="5" placeholder="Description here" id="selectdesciption" class="form-control"></textarea>
+        </div>
+        <br \>
+        <br \>
+
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4 mx-auto text-center">
+            <br \>
+            <button type="submit" class="btn btn-primary">CREATE</button>
+        </div>
+    </div>
+</form>
+
