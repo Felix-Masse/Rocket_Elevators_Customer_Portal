@@ -8,14 +8,18 @@
   ```
 ---
 
-## :busts_in_silhouette: Team Members
+## :busts_in_silhouette: Email Test
   ```
-    Email Test
     - leonel@jast-greenholt.biz
     - jacki@bednar.net
     - jacki@bednar.net
   ```
 ---
+
+#### The website new feature:
+  - Connexion to the Customer Portail if you are a Customer 
+  - see all your Buildings, Batteries, Columns and Elevators
+  - Make an Intervention (Unfinished)  
 
 
 ## <div align="center"> :rocket: [Website](http://felix-masse-customer-portal.herokuapp.com/) :rocket:
